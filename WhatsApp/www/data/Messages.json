@@ -1,0 +1,28 @@
+{
+   "messages":{
+      "1": {
+         "_id" : "1",
+         "sender": "Benjamin Robert",
+         "message": "Salut la famille",
+         "sentDate": "2016-02-12T08:10:56.054Z"
+      },
+      "1": {
+         "_id" : "2",
+         "sender": "Benjamin Robert",
+         "message": "Il y a quelqu'un ?",
+         "sentDate": "2016-02-12T08:11:56.054Z"
+      },
+      "1": {
+         "_id" : "3",
+         "sender": "Benjamin Robert",
+         "message": "Je suis seul au monde a utiliser cet appli ?",
+         "sentDate": "2016-02-12T08:12:56.054Z"
+      },
+      "1": {
+         "_id" : "4",
+         "sender": "Dimitri Saingre",
+         "message": "FERME TA GUEULE !",
+         "sentDate": "2016-04-12T08:10:56.054Z"
+      }
+   }
+}

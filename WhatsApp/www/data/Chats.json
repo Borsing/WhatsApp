@@ -1,0 +1,28 @@
+{
+   "chats":{
+      "1": {
+         "_id": "1",
+         "name": "Conversation Alpha",
+         "description": "description Alpha",
+         "creationDate": "2016-02-12T08:10:56.054Z"
+      },
+      "2": {
+         "_id": "2",
+         "name": "Conversation Bravo",
+         "description": "description Bravo",
+         "creationDate": "2016-03-12T08:10:56.054Z"
+      },
+      "3": {
+         "_id": "3",
+         "name": "Conversation Charlie",
+         "description": "description Charlie",
+         "creationDate": "2016-04-12T08:10:56.054Z"
+      },
+      "4": {
+         "_id": "4",
+         "name": "Conversation Delta",
+         "description": "description Delta",
+         "creationDate": "2016-05-12T08:10:56.054Z"
+      }
+   }
+}

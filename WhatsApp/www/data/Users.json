@@ -1,0 +1,28 @@
+{
+   "users":{
+      "1":{
+         "_id": "1",
+         "email": "benj@gmail.com",
+         "firstName" : "Benjamin",
+         "lastName" : "Robert"
+      },
+      "2":{
+         "_id": "2",
+         "email": "dim@gmail.com",
+         "firstName" : "Dimitri",
+         "lastName" : "Saingre"
+      },
+      "3":{
+         "_id": "3",
+         "email": "kev@gmail.com",
+         "firstName" : "Kevin",
+         "lastName" : "Keovilay"
+      },
+      "4":{
+         "_id": "4",
+         "email": "Dam@gmail.com",
+         "firstName" : "Damien",
+         "lastName" : "Raymond"
+      }   
+   }
+}
