@@ -1,5 +1,5 @@
 {
-   "chats":{
+   "conversation":{
       "1": {
          "_id": "1",
          "name": "Conversation Alpha",

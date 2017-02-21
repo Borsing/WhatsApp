@@ -1,34 +1,31 @@
 angular.module('starter.services', [])
 
 .factory('Contacts', function(){
-/*
-   $http.get('data/Users.json').success(function (results){
-      var contacts = results;
-   })*/
+
    var contacts = [
       {
-         _id: "1",
-         email: "benj@gmail.com",
-         firstName : "Benjamin",
-         lastName : "Robert"
+         "_id": "1",
+         "email": "benj@gmail.com",
+         "firstName" : "Benjamin",
+         "lastName" : "Robert"
       },
       {
-         _id: "2",
-         email: "dim@gmail.com",
-         firstName : "Dimitri",
-         lastName : "Saingre"
+         "_id": "2",
+         "email": "dim@gmail.com",
+         "firstName" : "Dimitri",
+         "lastName" : "Saingre"
       },
       {
-         _id: "3",
-         email: "kev@gmail.com",
-         firstName : "Kevin",
-         lastName : "Keovilay"
+         "_id": "3",
+         "email": "kev@gmail.com",
+         "firstName" : "Kevin",
+         "lastName" : "Keovilay"
       },
       {
-         _id: "4",
-         email: "Dam@gmail.com",
-         firstName : "Damien",
-         lastName : "Raymond"
+         "_id": "4",
+         "email": "Dam@gmail.com",
+         "firstName" : "Damien",
+         "lastName" : "Raymond"
       }] ;
 
    return {
@@ -36,61 +33,92 @@ angular.module('starter.services', [])
       return contacts;
     },
     get: function(contactId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (contacts[i].id === parseInt(contactId)) {
-          return contacts[i];
-        }
-      }
-      return null;
+      return contacts.find(c => c._id == contactId);
     }
   };
 })
 
-.factory('Chats', function() {
+.factory('Conversations', function() {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var chats = [{
-    id: 0,
-    name: 'Ben Sparrow',
-    lastText: 'You on your way?',
-    face: 'img/ben.png'
-  }, {
-    id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
-  }, {
-    id: 2,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
-  }, {
-    id: 3,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
-  }, {
-    id: 4,
-    name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
-  }];
+  var conversations = [
+      {
+         "_id": "1",
+         "name": "Conversation Alpha",
+         "description": "description Alpha",
+         "creationDate": "2016-02-12T08:10:56.054Z"
+      },
+      {
+         "_id": "2",
+         "name": "Conversation Bravo",
+         "description": "description Bravo",
+         "creationDate": "2016-03-12T08:10:56.054Z"
+      },
+      {
+         "_id": "3",
+         "name": "Conversation Charlie",
+         "description": "description Charlie",
+         "creationDate": "2016-04-12T08:10:56.054Z"
+      },
+      {
+         "_id": "4",
+         "name": "Conversation Delta",
+         "description": "description Delta",
+         "creationDate": "2016-05-12T08:10:56.054Z"
+      }
+   ];
 
   return {
     all: function() {
-      return chats;
+      return conversations;
     },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
-    },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
-        }
+    get: function(conversationId) {
+      return conversations.find(c => c._id == conversationId);
+    }
+  };
+})
+
+.factory('Conversation',function(Contacts) {
+  var messages = [{
+         "_id" : "1",
+         "conversationId" : "1",
+         "senderId": "1",
+         "message": "Salut la famille",
+         "sentDate": "2016-02-12T08:10:56.054Z"
+      },
+      {
+         "_id" : "2",
+         "conversationId" : "1",
+         "senderId": "1",
+         "message": "Il y a quelqu'un ?",
+         "sentDate": "2016-02-12T08:11:56.054Z"
+      },
+      {
+         "_id" : "3",
+         "conversationId" : "1",
+         "senderId": "1",
+         "message": "Je suis seul au monde a utiliser cet appli ?",
+         "sentDate": "2016-02-12T08:12:56.054Z"
+      },
+      {
+         "_id" : "4",
+         "conversationId" : "1",
+         "senderId": "2",
+         "message": "Tu es dans la matrix Neo!",
+         "sentDate": "2016-04-12T08:13:56.054Z"
       }
-      return null;
+  ]
+
+
+
+  return {
+    get : function(conversationId) {
+      return messages.filter(m => m.conversationId === conversationId).map(m => {
+        let c = Contacts.get(m.senderId);
+        m.sender = c.firstName + " " + c.lastName;
+        return m;
+      });
     }
   };
 });
