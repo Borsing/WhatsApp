@@ -59,7 +59,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    .state('tab.conversation-detail', {
+
+  .state('tab.conversation-creation', {
+    url: '/conversations/conversation-creation',
+    views: {
+      'tab-conversations': {
+        templateUrl: 'templates/conversation-creation.html',
+        controller: 'ConversationCreationCtrl'
+      }
+    }
+  })
+
+  .state('tab.conversation-detail', {
       url: '/conversations/:conversationId',
       views: {
         'tab-conversations': {
@@ -77,7 +88,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'AccountCtrl'
       }
     }
-  });
+  })
+
+
+  ;
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/contacts');

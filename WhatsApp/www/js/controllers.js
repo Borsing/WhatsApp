@@ -21,7 +21,20 @@ angular.module('starter.controllers', [])
 .controller('ConversationDetailCtrl', function($scope, $stateParams, Conversations, Conversation) {
   $scope.conversation = Conversations.get($stateParams.conversationId);
   $scope.messages = Conversation.get($stateParams.conversationId);
+  
+  $scope.addMessage = function(messageContent){
+    //TODO
+    Conversation.add(messageContent,"1",$stateParams.conversationId);
+    $scope.messages = Conversation.get($stateParams.conversationId);
+    $scope.message = "";
+  }
 })
+.controller('ConversationCreationCtrl', function($scope, Conversations){
+  $scope.addConversation = function(name, description){
+    Conversations.add(name,description);
+  }
+})
+
 
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {

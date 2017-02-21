@@ -1,0 +1,15 @@
+<ion-view view-title="Conversations Ajout">
+  <ion-content>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Name</span>
+        <input type="text" ng-model="name" placeholder="Name">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Description</span>
+        <input type="text" ng-model="description" placeholder="Description">
+      </label>
+      <button class="button button-block button-stable" type="submit" ng-disabled="!name || name === '' || !description || description === ''" ng-click="addConversation(name,description)">
+        Ajouter
+      </button>
+  </ion-content>
+</ion-view>

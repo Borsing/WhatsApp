@@ -75,6 +75,16 @@ angular.module('starter.services', [])
     },
     get: function(conversationId) {
       return conversations.find(c => c._id == conversationId);
+    },
+    add: function(name,description) {
+      let conv = {
+        "_id": (conversations.length + 1).toString(),
+         "name": name,
+         "description": description,
+         "creationDate": new Date().toISOString
+      };
+
+      conversations.push(conv);
     }
   };
 })
@@ -119,6 +129,17 @@ angular.module('starter.services', [])
         m.sender = c.firstName + " " + c.lastName;
         return m;
       });
+    },
+    add : function(message, senderId, conversationId){
+      let messageStruct = {
+        "_id" : (messages.length + 1).toString() ,
+        "conversationId" : conversationId,
+        "senderId": senderId,
+        "message": message,
+        "sentDate": new Date().toISOString()
+      };
+
+      messages.push(messageStruct);
     }
   };
 });
