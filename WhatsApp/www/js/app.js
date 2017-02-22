@@ -86,7 +86,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-conversations': {
           templateUrl: 'templates/conversation-detail.html',
-          controller: 'ConversationDetailCtrl'
+          controller: 'MessageCtrl'
         }
       }
     })
@@ -109,3 +109,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $urlRouterProvider.otherwise('/tab/contacts');
    
 });
+
+angular.module('starter.controllers',[]);
+angular.module('starter.services',[]);
