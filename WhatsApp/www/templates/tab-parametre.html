@@ -1,0 +1,16 @@
+<ion-view view-title="Parametres">
+  <ion-content>
+	<div class="card">
+		<div class="item item-divider">
+    		Mon Compte
+  		</div>
+	  	<div class="item item-text-wrap">
+			<h2>{{moncompte.firstName}} {{moncompte.lastName}} </h2>
+			<p>{{moncompte.email}}</p>
+	  	</div>
+	</div>
+	<button class="button button-block button-assertive" type="submit" ng-click="logout()">
+        Se deconnecter
+    </button>
+  </ion-content>
+</ion-view>

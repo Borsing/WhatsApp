@@ -1,0 +1,24 @@
+<ion-view view-title="Inscription">
+  <ion-content>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Prenom</span>
+        <input type="text" ng-model="prenom" placeholder="prenom">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Nom</span>
+        <input type="text" ng-model="nom" placeholder="nom">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Email</span>
+        <input type="text" ng-model="email" placeholder="email">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Password</span>
+        <input type="password" ng-model="password" placeholder="password">
+      </label>
+      <button class="button button-block button-positive" type="submit" ng-disabled="!email || email === '' || !password || password === '' || !nom || nom === '' || !prenom || prenom === ''" ng-click="inscrire(prenom,nom,email,password)">
+        S'inscrire
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

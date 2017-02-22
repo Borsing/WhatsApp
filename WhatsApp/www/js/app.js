@@ -32,14 +32,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
   })
-
   // Each tab has its own nav history stack:
-
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'LoginCtrl'
+    }
+  )
+  .state('inscription', {
+    url: '/inscription',
+    templateUrl: 'templates/inscription.html',
+    controller: 'InscriptionCtrl'
+    }
+  )
   .state('tab.contacts', {
     url: '/contacts',
     views: {
@@ -72,6 +82,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   .state('tab.conversation-detail', {
       url: '/conversations/:conversationId',
+      cache :false,
       views: {
         'tab-conversations': {
           templateUrl: 'templates/conversation-detail.html',
@@ -80,12 +91,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.parametre', {
+    url: '/parametre',
+    cache :false,
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      'tab-parametre': {
+        templateUrl: 'templates/tab-parametre.html',
+        controller: 'ParametreCtrl'
       }
     }
   })
@@ -95,5 +107,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/contacts');
-
+   
 });

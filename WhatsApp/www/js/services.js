@@ -7,25 +7,29 @@ angular.module('starter.services', [])
          "_id": "1",
          "email": "benj@gmail.com",
          "firstName" : "Benjamin",
-         "lastName" : "Robert"
+         "lastName" : "Robert",
+         "password" : "password"
       },
       {
          "_id": "2",
          "email": "dim@gmail.com",
          "firstName" : "Dimitri",
-         "lastName" : "Saingre"
+         "lastName" : "Saingre",
+         "password" : "password"
       },
       {
          "_id": "3",
          "email": "kev@gmail.com",
          "firstName" : "Kevin",
-         "lastName" : "Keovilay"
+         "lastName" : "Keovilay",
+         "password" : "password"
       },
       {
          "_id": "4",
          "email": "Dam@gmail.com",
          "firstName" : "Damien",
-         "lastName" : "Raymond"
+         "lastName" : "Raymond",
+         "password" : "password"
       }] ;
 
    return {
@@ -34,6 +38,17 @@ angular.module('starter.services', [])
     },
     get: function(contactId) {
       return contacts.find(c => c._id == contactId);
+    },
+    add: function(email,firstName,lastName,password){
+      let cont = {
+        "_id": (contacts.length + 1).toString(),
+         "email": email,
+         "firstName" : firstName,
+         "lastName" : lastName,
+         "password" : password
+      };
+
+      contacts.push(cont);
     }
   };
 })
@@ -140,6 +155,28 @@ angular.module('starter.services', [])
       };
 
       messages.push(messageStruct);
+    }
+  };
+})
+
+.factory('AuthentificationSrvc', function(Contacts){
+  var userId = null ;
+
+  return {
+    isLog : function() { 
+      return userId !== null ;
+    },
+    getUser : function(){
+      return userId ;
+    },
+    log : function(email, password) {
+      var newUser = Contacts.all().find(c => c.email === email && c.password === password);
+      if(newUser !== undefined){
+        userId = newUser._id ;
+      }
+    },
+    logout : function() {
+      userId = null ;
     }
   };
 });
